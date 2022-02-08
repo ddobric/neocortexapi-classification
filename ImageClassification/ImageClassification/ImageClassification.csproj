@@ -72,4 +72,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="InputFolder\Date Time Encoder output Images\" />
+  </ItemGroup>
+
 </Project>

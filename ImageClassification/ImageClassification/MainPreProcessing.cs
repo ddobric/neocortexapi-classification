@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ImageClassification
 {
-    internal class Class1
+    internal class MainPreProcessing
     {
+        Encoder DateTime = new Encoder();
+
+        public Encoder DateTime1 { get => DateTime; set => DateTime = value; }
+
+        DateTime.Encoder = 
+
     }
 }
