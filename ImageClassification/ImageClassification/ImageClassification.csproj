@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="InputFolder\Date Time Encoder output Images\**" />
+    <EmbeddedResource Remove="InputFolder\Date Time Encoder output Images\**" />
+    <None Remove="InputFolder\Date Time Encoder output Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="MainPreProcessing.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ImageBinarizer" Version="1.5.6" />
   </ItemGroup>
 
@@ -70,10 +80,6 @@
     <None Update="InputFolder\Coconut\r_66_100.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="InputFolder\Date Time Encoder output Images\" />
   </ItemGroup>
 
 </Project>

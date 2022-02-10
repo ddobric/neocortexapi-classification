@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageClassification", "ImageClassification\ImageClassification.csproj", "{E445D64C-388A-4BB7-A69F-5AB31E3ECF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageClassification", "ImageClassification\ImageClassification.csproj", "{E445D64C-388A-4BB7-A69F-5AB31E3ECF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgsConfig", "ArgsConfig\ArgsConfig.csproj", "{EDB50B99-8D79-4B91-841C-11A51CA77C51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArgsConfig", "ArgsConfig\ArgsConfig.csproj", "{EDB50B99-8D79-4B91-841C-11A51CA77C51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeEncoder", "DateTimeEncoder\DateTimeEncoder.csproj", "{B970A7F4-D846-459C-ACCE-4AC4581BEEF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EDB50B99-8D79-4B91-841C-11A51CA77C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB50B99-8D79-4B91-841C-11A51CA77C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB50B99-8D79-4B91-841C-11A51CA77C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B970A7F4-D846-459C-ACCE-4AC4581BEEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B970A7F4-D846-459C-ACCE-4AC4581BEEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B970A7F4-D846-459C-ACCE-4AC4581BEEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B970A7F4-D846-459C-ACCE-4AC4581BEEF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

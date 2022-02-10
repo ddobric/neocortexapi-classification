@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NeoCortexEntities\Entities\**" />
+    <EmbeddedResource Remove="NeoCortexEntities\Entities\**" />
+    <None Remove="NeoCortexEntities\Entities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="NeoCortexEntities\IDistributedArray.cs" />
+    <Compile Remove="NeoCortexEntities\IDistributedDictionary.cs" />
+    <Compile Remove="NeoCortexEntities\IHtmModule.cs" />
+    <Compile Remove="NeoCortexEntities\ITypeFactory.cs" />
+    <Compile Remove="NeoCortexEntities\obj\Debug\netstandard2.1\.NETStandard,Version=v2.1.AssemblyAttributes.cs" />
+    <Compile Remove="NeoCortexEntities\obj\Debug\netstandard2.1\NeoCortexEntities.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="imagebinarizer.1.0.0.nupkg" />
+    <None Remove="NeoCortexEntities\obj\Debug\netstandard2.1\NeoCortexEntities.AssemblyInfoInputs.cache" />
+    <None Remove="NeoCortexEntities\obj\Debug\netstandard2.1\NeoCortexEntities.csproj.AssemblyReference.cache" />
+    <None Remove="NeoCortexEntities\obj\Debug\netstandard2.1\NeoCortexEntities.csproj.FileListAbsolute.txt" />
+    <None Remove="NeoCortexEntities\obj\Debug\netstandard2.1\NeoCortexEntities.GeneratedMSBuildEditorConfig.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="NeoCortexEntities\NeoCortexEntities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Daenet.Common.Logging" Version="0.0.9" />
+    <PackageReference Include="Daenet.DurableTask.Microservices" Version="1.0.0" />
+    <PackageReference Include="ImageBinarizer" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NeoCortexEntities\bin\Debug\netstandard2.1\" />
+    <Folder Include="NeoCortexEntities\bin\Release\netstandard2.1\" />
+    <Folder Include="NeoCortexEntities\obj\Debug\netstandard2.1\" />
+    <Folder Include="NeoCortexEntities\obj\Release\" />
+  </ItemGroup>
+
+</Project>
