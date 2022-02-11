@@ -26,6 +26,7 @@ namespace NeoCortexApi.Encoders
         /// <summary>
         /// The instance of the binarized to be used while encoding.
         /// </summary>
+        /// 
         ImageBinarizer imageBinarizer;
 
         BinarizerParams binarizerParmas;
