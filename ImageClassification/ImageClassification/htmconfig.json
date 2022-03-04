@@ -7,7 +7,7 @@
   "NumInputs": 1,
   "NumColumns": 0,
   "PotentialRadius": 20,
-  "PotentialPct": 0.5,
+  "PotentialPct": 0.6,
   "StimulusThreshold": 0.0,
   "SynPermBelowStimulusInc": 0.01,
   "SynPermInactiveDec": 0.01,
