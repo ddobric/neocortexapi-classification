@@ -5,7 +5,7 @@ using NeoCortexApi.Network;
 using NeoCortexApi.Utility;
 
 // Getting the list of args from the command line
-Object input = "05/07/2011 21:58:07";
+Object input = "05/07/2015 21:58:07";
 CortexNetworkContext ctx = new CortexNetworkContext();
 DateTimeOffset now = DateTimeOffset.Now;
 Dictionary<string, Dictionary<string, object>> encoderSettings = new Dictionary<string, Dictionary<string, object>>();
