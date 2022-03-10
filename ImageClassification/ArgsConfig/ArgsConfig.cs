@@ -28,7 +28,9 @@ namespace AConfig
                         case "-if":
                             // current input InputFolder
                             index += 1;
-                            inputFolder = Path.Combine(currentDir, args[index]);
+                            string root = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
+                            //string path = Path.Combine(root);
+                            inputFolder = Path.Combine(root, args[index]);
                             break;
                         case "-cf":
                             // current config file htmconfig1.json
