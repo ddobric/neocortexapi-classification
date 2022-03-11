@@ -5,7 +5,7 @@ using NeoCortexApi.Network;
 using NeoCortexApi.Utility;
 
 
-void execute(string inp,string monthName)
+void execute(string inp,string monthName,int idx)
 {
     CortexNetworkContext ctx = new CortexNetworkContext();
     DateTimeOffset now = DateTimeOffset.Now;
@@ -27,7 +27,7 @@ void execute(string inp,string monthName)
     //Debug.WriteLine(NeoCortexApi.Helpers.StringifyVector(expectedOutput));
     int[,] twoDimenArray = ArrayUtils.Make2DArray<int>(result, 32, 32);
     int[,] twoDimArray = ArrayUtils.Transpose(twoDimenArray);
-    NeoCortex.NeoCortexUtils.DrawBitmap(twoDimArray, 1024, 1024, $"DateTime_out_{inp.ToString().Replace("/", "-").Replace(":", "-")}_32x32-N-{encoderSettings["DateTimeEncoder"]["N"]}-W-{encoderSettings["DateTimeEncoder"]["W"]}.png",monthName);
+    NeoCortex.NeoCortexUtils.DrawBitmap(twoDimArray, 1024, 1024, $"DateTime_out_{inp.ToString().Replace("/", "-").Replace(":", "-")}_32x32-N-{encoderSettings["DateTimeEncoder"]["N"]}-W-{encoderSettings["DateTimeEncoder"]["W"]}.png",monthName,idx);
 }
 
 string[] monthName = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
@@ -42,7 +42,7 @@ for (int i = 0; i < 2; i++)
     {
 
         inp = Console.ReadLine();
-        execute(inp,monthName[i]);
+        execute(inp,monthName[i],j+1);
     }
 }
 

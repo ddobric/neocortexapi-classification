@@ -47,9 +47,9 @@ namespace NeoCortex
         /// <param name="height">Output height.</param>
         /// <param name="filePath">The bitmap PNG filename.</param>
         /// <param name="text">Text to be written.</param>
-        public static void DrawBitmap(int[,] twoDimArray, int width, int height, String filePath, string monthName, string text = null)
+        public static void DrawBitmap(int[,] twoDimArray, int width, int height, String filePath, string monthName,int idx, string text = null)
         {
-            DrawBitmap(twoDimArray, width, height, filePath, Color.Black, Color.Green,monthName, text);
+            DrawBitmap(twoDimArray, width, height, filePath, Color.Black, Color.Green,monthName,idx, text);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace NeoCortex
         /// <param name="inactiveCellColor"></param>
         /// <param name="activeCellColor"></param>
         /// <param name="text">Text to be written.</param>
-        public static void DrawBitmap(int[,] twoDimArray, int width, int height, String filePath, Color inactiveCellColor, Color activeCellColor, string monthName, string text = null )
+        public static void DrawBitmap(int[,] twoDimArray, int width, int height, String filePath, Color inactiveCellColor, Color activeCellColor, string monthName,int idx, string text = null )
         {
             int w = twoDimArray.GetLength(0);
             int h = twoDimArray.GetLength(1);
@@ -75,7 +75,7 @@ namespace NeoCortex
             if (scale * w < width)
                 scale++;
 
-            DrawBitmap(twoDimArray, scale, filePath, inactiveCellColor, activeCellColor,monthName, text);
+            DrawBitmap(twoDimArray, scale, filePath, inactiveCellColor, activeCellColor,monthName,idx, text);
 
         }
 
@@ -88,7 +88,7 @@ namespace NeoCortex
         /// <param name="activeCellColor"></param>
         /// <param name="inactiveCellColor"></param>
         /// <param name="text">Text to be written.</param>
-        public static void DrawBitmap(int[,] twoDimArray, int scale, String filePath, Color inactiveCellColor, Color activeCellColor, string monthName, string text = null )
+        public static void DrawBitmap(int[,] twoDimArray, int scale, String filePath, Color inactiveCellColor, Color activeCellColor, string monthName, int idx, string text = null )
         {
             int w = twoDimArray.GetLength(0);
             int h = twoDimArray.GetLength(1);
@@ -126,6 +126,7 @@ namespace NeoCortex
 
             //string filename = "DateTime_out_05 - 07 - 2015 21 - 58 - 07_32x32 - N - 1024 - W - 21.png";
             string filename = filePath+".png";
+            //string filename = "pic"+idx+".jpg";
             //test 
             string root = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
             //Console.WriteLine(monthName);
