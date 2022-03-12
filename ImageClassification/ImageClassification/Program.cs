@@ -34,11 +34,11 @@ string[] monthName = { "January", "February", "March", "April", "May", "June", "
 // Getting the list of args from the command line
 string inp;
 
-for (int i = 0; i < 2; i++)
+for (int i = 0; i < 4; i++)
 {
 
     Console.WriteLine("Please give Date & Time input for " + monthName[i]);
-    for(int j= 0; j < 1; j++)
+    for(int j= 0; j < 4; j++)
     {
 
         inp = Console.ReadLine();
