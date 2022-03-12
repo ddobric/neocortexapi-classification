@@ -24,7 +24,7 @@ We must provide the learning code and possibly some prediction code. After learn
 
 ### Step-2: Prepare the program's directory for Prediction Images.
  
- Create a new folder "PredictInputFolder/" in the project directory and the Prediction Images are stored in it, where the prediction extracts the images from this directory to perform the shape prediction with the help of trained dataset.
+ Create a new folder "PredictInputFolder/" in the project directory and the Prediction Images are stored in it, where the prediction extracts the images from this directory to perform the shape prediction with the help of trained dataset. The prediction code is able to get the multiple images for prediction and displays the similarity output respectivly
 
  !["PredictInputFolder/" with the images to be predicted](https://user-images.githubusercontent.com/46021672/158034865-d6fe12bf-bf22-452a-8c91-d783d784660e.png)
  
@@ -49,7 +49,7 @@ After experimenting the learning dataset with the various parameters, we were ab
 
 ### Task 2: Code for Image Prediction. 
 
-1. After the learning process, The prediction images are extracted from the "PredictInputFolder/"
+1. After the learning process, The prediction images are extracted from the "PredictInputFolder/".(Multiple images can be provided as input for the prediction where the code is able to loop between them and display the similarity results respectively)
 2. The images are encoded and input pattern is learned.
 3. The Prediction method compares the predict image SDR with the trained image SDR's and caluclates the average percentage of similarity for a shape.
 4. The Prediction code will display the average percentage between the input predict image and trained shapes.
