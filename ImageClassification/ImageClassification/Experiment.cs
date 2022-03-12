@@ -8,15 +8,25 @@ using Daenet.ImageBinarizerLib.Entities;
 
 namespace ConsoleApp
 {
+    /// <summary>
+    /// Class Experiment contains methods for setting HTM Parameters
+    /// and binarization of the images
+    /// </summary>
     internal class Experiment
     {
         HtmConfig htmConfig;
         ArgsConfig expConfig;
+    
         public Experiment( ArgsConfig config)
         {
             expConfig = config;
             htmConfig = config.htmConfig;
         }
+
+        /// <summary>
+        /// This method binarizes input images and works as an Encoder by
+        /// encoding Input Images into arrays of 0 & 1.
+        /// </summary>
 
         public void run()
         { 
@@ -30,8 +40,8 @@ namespace ConsoleApp
                 Dictionary<string, List<string>> inputsPath // Path of the list of images found in the given folder
             )   = imageBinarization(directories, width, height);
 
-            // The key of the dictionary helps to keep track of which class the SDR belongs to
-            
+
+            // For training the Spatial Pooler with Black and White Images
             (Dictionary<string, int[]> sdrs,var cortexLayer) = SPTrain(htmConfig, binaries);
             //(Dictionary<string, int[]> sdrs2, var cortexLayer2) = SPTrain(htmConfig, binaries, colorThreshold );
 
