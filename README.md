@@ -1,72 +1,85 @@
-# NeocortexApi-Project **Image Classification**
+Group Name: Team CodeCube
 
-This project is the implementaiton of the command line interfaca for the image classification based on the Hierarchical Temporal Memory (HTM) implemented in the [necortexapi](https://github.com/ddobric/neocortexapi) repository.
+Team members: Alam Sher Khan (Matriculation number: 1387324), Aiman Zehra (Matriculation number: 1388996), Soundarya Talawai (Matriculation number: 1390133)
 
-This project is a collected work of thesis [**htm imgclassification**](https://github.com/UniversityOfAppliedSciencesFrankfurt/thesis-htm-imgclassification-dasu) by Dasu Sai Durga Sundari and SoftwareEngineering(SE) project of the same name by Long Nguyen at the Frankfurt University of Applied Sciences.  
+Project Description
+1. Objective: Analyse Image Classification of MNIST Dataset
+In the previous work at the university an Image Classification solution has been implemented. Our task is to implement a program that uses the existing solution and start a training of learning images. The image dataset which we have used in this project is MNIST Database images. Our task is to change various learning parameters and to find the best fit that shows image classification. Most important learning parameters are: Global/Local Inhibition, Potential Radius, Local Area Density and NumofActiveColumnsPerInArea. We have to demonstrate how these parameters influence the learning. Our code must provide the learning code and prediction code. After learning user should use your code and test the quality of learning. For example, the user after learning enter the image “table”. The prediction code provide a set of predicting results like: “Table – 87%, chair 7%, light - 3%”.
 
-## How to use the classifier?
+2. Our Approach
+1 - To find the HTM Parameters which gives the best fit that shows image classification
+We have changed various parameters Global/Local Inhibition, Potential Radius, Local Area Density between various images of MNIST datasets. After conducting various experiments we have been able to find the parameters at which we get the least overlapping in between micro and macro and thus the best correlation matrix.
 
-### 1 Prepare the program's directory:
- 
- Before you start you need to prepare images that are required for the training. Images must be copied in the following folder structure along with the application and the config json:  
+For example: Capture
 
- ![](Images/WorkingDirectory.png)
- 
-The imagesets are stored inside "InputFolder/".  
+2 - To provide the prediction code
+After we got the parameters which shows the best correlation matrix, we have added the code for predicting the images after learning phase.
 
-![](Images/InputFolder.png)  
+Case1- We have entered an image which is somewhere similar to the input images(Dataset), and the prediction code will calculate the maximum percentage of similarity between the entered image and the input images of the label(Dataset)
+Case2- We have entered and image which is completely different from the input images(Dataset), in this case the prediction code will direct a message as "Image is not similar to any of the input images"
+The prediction code will calculate the Highest similarity in between the input images of the label(Dataset).
+The prediction code will give the name of the label which is being predicted with the highest similarity.
+Example
+Case1 - When testing image is similar to the learning dataset
+Testing Image
 
-Each Imageset is stored inside a folder whose name is the set's label.  
+9_pic2
 
-![](Images/SampleData.png)  
+Learning Dataset
 
- Sample input folder of the project can be found [here](ImageClassification/ImageClassification/InputFolder)  
- ### 2 Start the application by passing required command line arguments
- ~~~
- ImageClassification -if "InputFolder" -cf htmconfig.json
- ~~~
- -if   "Input Images folder path"  
- -cf   "json htm config file path"  
- 
- **HTM Configuration**  
- HTM setting of the project can be inputted to the program by means of a .json file [htmconfig.json](ImageClassification/ImageClassification/htmconfig.json).  
- Multiple experiments can therefore be conducted via changes of parameters in the json file. 
- For a reference on what each parameter does, please refer to []() on [neocortexapi](https://github.com/ddobric/neocortexapi) 
- 
-### 3 How it works
+Capture
 
-When started the application will load images and start the training process. The training process runs in following steps.
+Output Result in Case 1
 
-#### (1) Convert The Images to binary array via binarization**  
-[The Binarization Library](https://github.com/daenetCorporation/imagebinarizer) was developed as an open source project at [Daenet](https://daenet.de/de/).  
-the current implementation uses a color threshold of 200 for every color in a 8bit-RGB scale.  
-The images with the same label must be stored in folder. The folder name is the images' label.   
+Capture
 
-#### (2) Learn spatial patterns stored in images with the Spatial Pooler(SP)
-SP first iterates through all images until the stable state is entered.
-SP iterate through all the images as it learns.
+Case2 - When testing image is completely different from the learning dataset
+Testing Image
 
-#### (3) Validation of SP Learning for different set of images
-The last set of Sparse Density Representations (SDRs), the output of Spatial Pooler(SP) for each binarized image were saved for correlation validation.  
-There are 2 types of correlation which are defined as follow:
-1. *Micro Correlation*: Maximum/Average/Minimum correlation in similar bit percent of all images' SDRs which respect to each another in the same label.  
-2. *Macro Correlation*: Maximum/Average/Minimum correlation in similar bit percent of all images' SDRs with images from 2 different labels.   
-The results of the two correlation are printed in the command prompt when executing the code  
+Capture
 
-The algorithm for calculating correlation can be found [here](https://github.com/ddobric/neocortexapi/blob/7d05b61b919a82fd7f8028c63970dfbc7d78dd50/source/NeoCortexApi/Utility/MathHelpers.cs#L93)  
-Result example:
+Learning Dataset
 
-![Sample output of the experiment after learning](Images/OutputExample.png)  
-The Images used was collected from [Fruit 360](https://github.com/Horea94/Fruit-Images-Dataset).  
-## How to run the application in Visual Studio
-Visual Studio can add arguments (args) parameter to run your code.  
-![](Images/LaunchProfile.png)
-This is done by changing the arguments command line arguments in Debug Properties Launch Profiles to 
-~~~
--cf htmconfig1.json -if "InputFolder"
-~~~
--cf add the option of the configuration file "htmconfig1.json"  
--if add the option of the training Input Folder "InputFolder/".  
-This folder contains folders of images, where the folder names also act as the label for the images inside it.  
+Capture
+
+Output Result in Case 2
+
+Capture
+
+3. Steps to setup the Learning and Prediction Code:
+Step1 - (To setup input folder for learning/training of images)
+Images must be copied in the following folder structure along with the application and the config json: (https://github.com/Alam-Sher-Khan/neocortexapi-classification/tree/Aiman/ImageClassification/ImageClassification/InputFolder)
+Capture
+
+The imagesets(MNIST) are stored inside "InputFolder/".
+Capture
+
+Each Imageset is stored inside a folder whose name is the set's label.
+Capture
+
+Step2 - (To setup image for prediction code)
+Select an Image and give the location path of the image in the prediction code (https://github.com/Alam-Sher-Khan/neocortexapi-classification/blob/Aiman/ImageClassification/ImageClassification/Experiment.cs#L79)
+Example: Capture
+
+HTM setting of the project can be inputted to the program by means of a .json file (https://github.com/Alam-Sher-Khan/neocortexapi-classification/blob/Aiman/ImageClassification/ImageClassification/htmconfig.json) . Various experiments have been conducted with changes of parameters in the json file After running the code at the best HTM parameters obtained after experimenting in the learning phase, we can get the prediction status of any input image.
+4. Working Process
+Following steps are included in the processing of the training of images:
+
+Binarization/Encoder:It is responsible for encoding the images in binary form after training of the images.(https://github.com/Alam-Sher-Khan/neocortexapi-classification/blob/Aiman/ImageClassification/ImageClassification/InputFolder/One/1_a1.txt)
+
+Spatial Pooling: The essential function of spatial pooling is to form an SDR of the inputs. The output of the spatial pooler is as a binary vector, which represents the activation of columns in response to the current input.The SP consists of three phases, namely overlap, inhibition, and learning.
+
+Learning Validation: The result of the learning of images will generate a matrix which will show the relation between the micro (correlation in between the images of same label) and macro (correlation in between the images of different label)
+
+Example: Capture
+
+Prediction Valiation: The prediction code added will help to find the precentage of similarity between th input image and the SDR's of the MNIST dataset, and thus predicting the label of the image having the highest similarity.
+5. Goals Achieved
+So far several experiments have been done to get the best correlation matrix in the learning phase and prediction code has been generated based on the initial analysis in the learning phase.
+
+6. In-Progress
+We are conducting more experiments to further analyse the effects of other HTM Parameters on learning of MNIST images.
+We are working to create graphs from the data obtained from experiments.
+We are working on prediction code to make the setup of input testing image path independent of the local machine.
 
 
