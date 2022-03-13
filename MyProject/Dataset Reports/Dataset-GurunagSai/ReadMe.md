@@ -6,7 +6,7 @@ For the simple shapes learning dataset, the images of Circle, Rectangle and Trai
 
 #### Experiment Results
 
-For this dataset, the experiments are conducted on the following parameters and the results are recorded in the ExperimentReport.xlsx file along with the output png images
+For this dataset, the experiments are conducted on the following parameters and the results are recorded in the ExperimentReport.xlsx file along with the output.png images in OutputFolder
 
 | Parameter       | Description         |
 | ------------- |:-------------:|
