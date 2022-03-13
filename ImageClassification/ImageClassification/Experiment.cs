@@ -92,7 +92,7 @@ namespace ConsoleApp
 
             // Prediction Code
             // input image encoding,path of image to be provided for prediction
-            int[] encodedInputImage = ReadImageData("C:/Users/HP/source/repos/pic1.jpg", width, height);
+            int[] encodedInputImage = ReadImageData("C:/Users/HP/source/repos/pic4.jpg", width, height);
             var temp1 = cortexLayer.Compute(encodedInputImage, false);
 
             // This is a general way to get the SpatialPooler result from the layer.
