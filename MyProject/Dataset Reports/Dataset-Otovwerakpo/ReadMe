@@ -2,7 +2,7 @@
 
 #### Training Dataset:
 
-For the simple shapes learning dataset, the images of Circle, Rectangle and Traingle are used which has the input dimensions of 64x64.
+For the simple shapes learning dataset, the images of Circle, Rectangle, Traingle and Star are used which has the input dimensions of 64x64.
 
 #### Experiment Results
 
