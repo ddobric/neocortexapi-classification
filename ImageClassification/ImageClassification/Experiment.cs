@@ -92,7 +92,7 @@ namespace ConsoleApp
 
             // Prediction Code
             // input image encoding,path of image to be provided for prediction
-            int[] encodedInputImage = ReadImageData("C:/Users/HP/source/repos/certificate.png", width, height);
+            int[] encodedInputImage = ReadImageData("C:/Users/HP/source/repos/five.png", width, height);
             var temp1 = cortexLayer.Compute(encodedInputImage, false);
 
             // This is a general way to get the SpatialPooler result from the layer.
@@ -139,7 +139,7 @@ namespace ConsoleApp
                     {
                         temp1 = sumOfSimilarities;
                         label = $"{"The image is predicted as " + secondEntry.Key}";
-                        if (temp1 < 50.0) //This depends and selected based on the HTM parameters given in htmconfig.json file
+                        if (temp1 < 65.0) //This depends and selected based on the HTM parameters given in htmconfig.json file
                         {
                             label = "The similarity of Input Image is too low, hence the given image might not belong to the Learning Dataset";
                         }
@@ -298,7 +298,7 @@ namespace ConsoleApp
             cortexLayer.HtmModules.Add("sp", sp);
 
             // Learning process will take 1000 iterations (cycles)
-            int maxSPLearningCycles = 1;
+            int maxSPLearningCycles = 1000;
 
             // Save the result SDR into a list of array
             Dictionary<string, int[]> outputValues = new Dictionary<string, int[]>();
