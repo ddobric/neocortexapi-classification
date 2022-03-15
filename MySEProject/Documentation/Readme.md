@@ -1,7 +1,4 @@
 # Project:	Analyse Image Classification on Simple Shapes
-Group Name: Team CrustyCrab
-
-Team members: Gurunag Sai Udaykumar, Emmanuel Otovwerakpo and Bolutife Adisa
 
 ## Project Description
 Previously the Image Classification solution has been implemented. Our task is to implement a program that uses the exsisting solution as a library and start a training of learning shapes. Our group has used the simple shapes such as Circle, Rectangle, Triangle and Star images for training the model.
