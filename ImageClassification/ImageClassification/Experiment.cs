@@ -58,7 +58,7 @@ namespace ConsoleApp
                 var filePathList = entry.Value;
                 var numberOfImages = filePathList.Count;
 
-                for (int i = 0; i < numberOfImages; i++) // loop of the images inside the folder
+                for (int i = 0; i < numberOfImages; i++) // loop of the images inside the InputFolder
                 {
                     if (!sdrs.TryGetValue(filePathList[i], out int[] sdr1)) continue;
 
@@ -67,7 +67,7 @@ namespace ConsoleApp
                         var classLabel2 = secondEntry.Key;
                         var filePathList2 = secondEntry.Value;
                         var numberOfImages2 = filePathList2.Count;
-                        for (int j = 0; j < numberOfImages2; j++) // loop of the images inside the folder
+                        for (int j = 0; j < numberOfImages2; j++) // loop of the images inside the InputFolder
                         {
                             if (!sdrs.TryGetValue(filePathList2[j], out int[] sdr2)) continue;
                             string fileNameofFirstImage = Path.GetFileNameWithoutExtension(filePathList[i]);
@@ -75,9 +75,9 @@ namespace ConsoleApp
                             string temp = $"{classLabel + fileNameofFirstImage}__{classLabel2 + fileNameOfSecondImage}";
 
                             //For output similarity calculation
-                            listCorrelation.Add(temp, MathHelpers.CalcArraySimilarity(sdr1, sdr2));
+                            listCorrelation.Add(temp, (MathHelpers.CalcArraySimilarity(sdr1, sdr2)));
                             //For input similarity calculation (within same folder)
-                            listInputCorrelation.Add(temp, MathHelpers.CalcArraySimilarity(binaries[filePathList[i]].IndexWhere((el) => el == 1), binaries[filePathList2[j]].IndexWhere((el) => el == 1)));
+                            listInputCorrelation.Add(temp, Math.Round(MathHelpers.CalcArraySimilarity(binaries[filePathList[i]].IndexWhere((el) => el == 1), binaries[filePathList2[j]].IndexWhere((el) => el == 1)), 2));
                         }
                     }
                 }
@@ -101,9 +101,11 @@ namespace ConsoleApp
             var sdrOfInputImage = activeColumns.OrderBy(c => c).ToArray(); //SDR of iput image
 
             string predictedLabel = PredictLabel(sdrOfInputImage, sdrs);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\n============Input Image Prediction============");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"\n>>Prediction status: {predictedLabel}"); //Displaying the prediction status obtained from Method "PredictLabel"
-
+            Console.ForegroundColor = ConsoleColor.White;
             /// <summary>
             /// Prediction Code done by Group CodeCube (Alam, Aiman & Soundarya)
             /// The method PredictLabel compares the SDR of input image (testing image) with the SRDs 
@@ -118,7 +120,9 @@ namespace ConsoleApp
                 foreach (KeyValuePair<string, List<string>> secondEntry in inputsPath)
                 {
                     double sumOfSimilarities = 0; //sum of similarities with images in Same Class(Label)
-
+                    double avgSimilarity = 0;
+                    double maxSimilarity = 0;
+                    double minSimilarity = 100.0;
                     // loop of each folder in input folder
                     var classLabel2 = secondEntry.Key;
                     var filePathList2 = secondEntry.Value;
@@ -128,26 +132,43 @@ namespace ConsoleApp
                         if (!sdrs.TryGetValue(filePathList2[j], out int[] sdr2)) continue;
 
                         //calculating the similarity between SDR of Input Images with the SDR of the current iterated image (Learning Dataset)
-                        similarityWithEachSDR = MathHelpers.CalcArraySimilarity(sdrOfInputImage, sdr2);
+                        similarityWithEachSDR = Math.Round(MathHelpers.CalcArraySimilarity(sdrOfInputImage, sdr2), 2);
                         sumOfSimilarities += similarityWithEachSDR;
+                        //calculating maximum and minimum similarity of input image with each label
+                        if (maxSimilarity < similarityWithEachSDR)
+                        {
+                            maxSimilarity = similarityWithEachSDR;
+                        }
+
+                        if (minSimilarity > similarityWithEachSDR)
+                        {
+                            minSimilarity = similarityWithEachSDR;
+                        }
 
                     }
                     //calculating the Average similarity of the Input Image with Learning Images in each Category (Label)
-                    sumOfSimilarities /= numberOfImages2;
+                    avgSimilarity = Math.Round(sumOfSimilarities /= numberOfImages2, 2);
 
-                    if (sumOfSimilarities > temp1)
+                    if (avgSimilarity > temp1)
                     {
-                        temp1 = sumOfSimilarities;
+                        temp1 = avgSimilarity;
                         label = $"{"The image is predicted as " + secondEntry.Key}";
-                        if (temp1 < 65.0) //This depends and selected based on the HTM parameters given in htmconfig.json file
+                        if (temp1 < 60.0) //This depends and selected based on the HTM parameters given in htmconfig.json file
                         {
                             label = "The similarity of Input Image is too low, hence the given image might not belong to the Learning Dataset";
                         }
 
                     }
-                    Console.WriteLine("\n> The Input Image is similar to Digit " + secondEntry.Key + " by " + sumOfSimilarities + " %");
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nSimilarity of Input Image to Digit " + secondEntry.Key + ":");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("> Max. Similarity:" + maxSimilarity + " %");
+                    Console.WriteLine("> Avg. Similarity:" + avgSimilarity + " %");
+                    Console.WriteLine("> Min. Similarity:" + minSimilarity + " %");
                 }
                 //Display the highest similarity  of the Input Image with the training category
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("\n Highest Similarity is: " + temp1 + " % ");
 
                 return label;
@@ -298,7 +319,7 @@ namespace ConsoleApp
             cortexLayer.HtmModules.Add("sp", sp);
 
             // Learning process will take 1000 iterations (cycles)
-            int maxSPLearningCycles = 1000;
+            int maxSPLearningCycles = 1;
 
             // Save the result SDR into a list of array
             Dictionary<string, int[]> outputValues = new Dictionary<string, int[]>();
