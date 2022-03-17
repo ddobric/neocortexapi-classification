@@ -3,7 +3,9 @@
 #### Training Dataset:
 
 For the simple shapes learning dataset, the images of Circle, Rectangle and Traingle are used which has the input dimensions of 64x64 and 100x100.
+
 Dataset GurunagSai has an input dimension of 64x64
+
 Dataset Otovwerakpo has an input dimension of 100x100
 
 Two diiferent set of datset are used to observe if the size of a datset would influence the result.
