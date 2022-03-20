@@ -23,4 +23,4 @@ For this dataset, the experiments are conducted on the following parameters and 
 
 For Dataset GurunagSia: After a good amount of experiments the experiment-35(potential radius - 30 localareadensity - 0.15) has given the best fit matrix.
 
-For Dataset Otovwerakpo: After a good amount of experiments the experiment0015 (potential radius - 30 localareadensity - 0.06) has given the best fit matrix.
+For Dataset Otovwerakpo: After a good amount of experiments the Experiment0023 (potential radius - 30 localareadensity - 0.2) has given the best fit matrix.
