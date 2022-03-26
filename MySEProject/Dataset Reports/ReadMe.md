@@ -21,6 +21,7 @@ For this dataset, the experiments are conducted on the following parameters and 
 | LOCAL_AREA_DENSITY      |Density of active columns inside of local inhibition radius. If set on value < 0, explicit number of active columns (NUM_ACTIVE_COLUMNS_PER_INH_AREA) will be used. |
 | NUM_ACTIVE_COLUMNS_PER_INH_AREA     |An alternate way to control the density of the active columns. If this value is specified then LOCAL_AREA_DENSITY must be less than 0, and vice versa. |
 
-For Dataset GurunagSia (64x64): After a good amount of experiments, output17.ng with a paramemters of potential radius 10 and localareadensity 0.3 gives the best results.
+For Dataset GurunagSia (64x64): After a good amount of experiments, output-17.ng with a paramemters of potential radius 10 and localareadensity 0.3 gives the best results.
+![output-17](https://user-images.githubusercontent.com/75277351/160253818-3f9d41ce-6fb8-4cee-affd-be09afdf5b04.png)
 
-For Dataset Otovwerakpo (100x100): After a good amount of experiments, experiment0023.ng with a paramemters of potential radius 30 and localareadensity 0.3 gives the best results.
+For Dataset Otovwerakpo (100x100): After a good amount of experiments, experiment0025.ng with a paramemters of potential radius 30 and localareadensity 0.3 gives the best results.
