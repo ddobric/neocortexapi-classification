@@ -23,4 +23,4 @@ For this dataset, the experiments are conducted on the following parameters and 
 
 For Dataset GurunagSia (64x64): After a good amount of experiments, output17.ng with a paramemters of potential radius 10 and localareadensity 0.3 gives the best results.
 
-For Dataset Otovwerakpo (100x100): After a good amount of experiments, experiment0023.ng with a paramemters of potential radius 10 and localareadensity 0.3 gives the best results.
+For Dataset Otovwerakpo (100x100): After a good amount of experiments, experiment0023.ng with a paramemters of potential radius 30 and localareadensity 0.3 gives the best results.
