@@ -64,7 +64,6 @@ namespace ConsoleApp
                             listCorrelation.Add(temp, MathHelpers.CalcArraySimilarity(sdr1, sdr2));
                             listInputCorrelation.Add(temp, MathHelpers.CalcArraySimilarity(binaries[filePathList[i]].IndexWhere((el) => el == 1), binaries[filePathList2[j]].IndexWhere((el) => el == 1)));
                         }
-                        Console.WriteLine("sdr len: " + sdr1.Length);
                     }
                 }
             }
@@ -229,7 +228,7 @@ namespace ConsoleApp
             cortexLayer.HtmModules.Add("sp", sp);
 
             // Learning process will take 1000 iterations (cycles)
-            int maxSPLearningCycles = 50;
+            int maxSPLearningCycles = 1000;
 
             // Save the result SDR into a list of array
             Dictionary<string, int[]> outputValues = new Dictionary<string, int[]>();
