@@ -22,7 +22,8 @@ For this dataset, the experiments are conducted on the following parameters and 
 | NUM_ACTIVE_COLUMNS_PER_INH_AREA     |An alternate way to control the density of the active columns. If this value is specified then LOCAL_AREA_DENSITY must be less than 0, and vice versa. |
 
 For Dataset GurunagSia (64x64): After a good amount of experiments, output-17.ng with a paramemters of potential radius 10 and localareadensity 0.3 gives the best results.
-![output-17](https://user-images.githubusercontent.com/75277351/160253818-3f9d41ce-6fb8-4cee-affd-be09afdf5b04.png)
+
+![output-17](https://user-images.githubusercontent.com/46021672/160385913-df6764f8-867b-4603-906e-f793c9122723.png)
 
 
 For Dataset Otovwerakpo (100x100): After a good amount of experiments, experiment0025.ng with a paramemters of potential radius 30 and localareadensity 0.3 gives the best results.
