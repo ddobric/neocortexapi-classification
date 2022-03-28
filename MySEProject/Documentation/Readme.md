@@ -12,7 +12,7 @@ Further, The training data needs to be used for feature prediction of any given 
  
  Create a new folder "InputFolder/" in the project directory and the imagesets which are used to train the model are stored in it.
  
-!["InputFolder/" with the shapes to train](https://user-images.githubusercontent.com/46021672/158034659-5e2c7221-f513-4c6d-b59b-5e78a8107aa6.png)
+![image](https://user-images.githubusercontent.com/46021672/160387127-ab67eac8-bd2c-4889-a211-febcc13d8418.png)
 
  Each Imageset is stored inside a folder whose name is the set's label.
  
@@ -41,7 +41,8 @@ The following parameters have been changed for the trained image dataset of simp
 
 After experimenting the learning dataset with the various parameters, we were able to find the best corelation matrix that shows image classification for simple shapes.
 
-![image](https://user-images.githubusercontent.com/46021672/160382630-693460de-1555-4d83-b699-a39fa6a92120.png)
+![image](https://user-images.githubusercontent.com/46021672/160387229-38cc7670-2790-46ce-a5dd-4681c6cf7834.png)
+
 
 ### Task 2: Code for Image Prediction. 
 
@@ -53,6 +54,8 @@ After experimenting the learning dataset with the various parameters, we were ab
 The flowchart of the prediction phase is demonstrated in the below image
 
 ![Prediction flow chart](https://user-images.githubusercontent.com/46021672/160383599-a8f1d0c7-a625-49c5-81eb-1ca9a9ecc5d6.png)
+
+The code for image prediction can be found [here](https://github.com/GurunagSai/neocortexapi-classification/blob/9db90e1416a400fa98dae8dc118edced62463ea0/MySEProject/ImageClassification/ImageClassification/Experiment.cs#L266)
 
 Below is the prediction result for the images used for predicion
 ![image](https://user-images.githubusercontent.com/46021672/160382681-f7732727-69f4-4dc2-acc0-363e5ee990b2.png)
