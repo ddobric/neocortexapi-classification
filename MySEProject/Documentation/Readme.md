@@ -1,11 +1,10 @@
 # Project:	Analyse Image Classification on Simple Shapes
 
 ## Project Description
-Previously the Image Classification solution has been implemented. Our task is to implement a program that uses the exsisting solution as a library and start a training of learning shapes. Our group has used the simple shapes such as Circle, Rectangle, Triangle and Star images for training the model.
 
-Our task is to change various learning parameters and to find the best fit that shows image classification. Most important learning parameters are: Global/Local Inhibition, Potential Radius, Local Area Density and NumofActiveColumnsPerInArea and demonstrate how these parameters influence learning. 
+The Image classification project is previously implemented using HTM algorithm and using NeoCortex API, where our primary task to experiment with simple shapes(circle, rectangle, square, triangle and star) on the spatial pooler parameters: Global/Local Inhibition, Potential Radius, Local Area Density and NumofActiveColumnsPerInArea and demonstrate how these parameters influence learning and generate a Best fit correlation matrix.
 
-We must provide the learning code and possibly some prediction code. After learning user should use your code and test the quality of learning. For example, the user after learning enter the image “Circle”. The prediction code provide a set of predicting results like: “Circle – 73%, Rectangle 14%, Triangle - 11%”.
+Further, The training data needs to be used for feature prediction of any given input image For example, the user after learning enter the image “Circle”. The prediction code provide a set of predicting results like: “Circle – 73%, Rectangle 14%, Triangle - 11%”.
 
  ## Setup for Learning and Prediction
  
@@ -17,17 +16,17 @@ We must provide the learning code and possibly some prediction code. After learn
 
  Each Imageset is stored inside a folder whose name is the set's label.
  
-![shape images](https://user-images.githubusercontent.com/46021672/158034776-5de660bd-5576-4f4f-a115-84ea57904453.png)
+![image](https://user-images.githubusercontent.com/46021672/160381920-728ba2af-41d8-4802-8ab3-9c7d1c85ceeb.png)
+
 
 ### Step-2: Prepare the program's directory for Prediction Images.
  
  Create a new folder "PredictInputFolder/" in the project directory and the Prediction Images are stored in it, where the prediction extracts the images from this directory to perform the shape prediction with the help of trained dataset. The prediction code is able to get the multiple images for prediction and displays the similarity output respectivly
 
- !["PredictInputFolder/" with the images to be predicted](https://user-images.githubusercontent.com/46021672/158034865-d6fe12bf-bf22-452a-8c91-d783d784660e.png)
- 
- ![Prediction Directory code](https://user-images.githubusercontent.com/46021672/158034961-975f4150-229b-49a6-8103-afc2969638c9.png)
+ !["PredictInputFolder/" with the images to be predicted](https://user-images.githubusercontent.com/46021672/160382423-71dd000e-1a1b-41e3-9475-27324acb0027.png)
 
-## Tasks
+
+## Tasks and Results
 
 ### Task 1: To change the various learning parameters and find the best fit that shows image classification. 
 
@@ -42,7 +41,7 @@ The following parameters have been changed for the trained image dataset of simp
 
 After experimenting the learning dataset with the various parameters, we were able to find the best corelation matrix that shows image classification for simple shapes.
 
-![correlation matrix](https://user-images.githubusercontent.com/46021672/158035925-f3685ac9-3e79-4602-88ed-7146ba192e5f.png)
+![image](https://user-images.githubusercontent.com/46021672/160382630-693460de-1555-4d83-b699-a39fa6a92120.png)
 
 ### Task 2: Code for Image Prediction. 
 
@@ -51,9 +50,21 @@ After experimenting the learning dataset with the various parameters, we were ab
 3. The Prediction method compares the predict image SDR with the trained image SDR's and caluclates the average percentage of similarity for a shape.
 4. The Prediction code will display the average percentage between the input predict image and trained shapes.
 
-![prediction result](https://user-images.githubusercontent.com/46021672/158036528-f72fdfc6-607c-4046-8397-2a29e971613d.png)
+The flowchart of the prediction phase is demonstrated in the below image
 
-## Progress of the project
+![Prediction flow chart](https://user-images.githubusercontent.com/46021672/160383599-a8f1d0c7-a625-49c5-81eb-1ca9a9ecc5d6.png)
 
-1. Objective-1: We have conducted several experiments with the parameters for the training phase, we need to conduct more experiments for getting the best correlation matrix for the simple shapes.
-2. Objective-2: Implemented prediction code, due to the less accuracy of the trained model, the prediction values for the images similar to the dataset is less similar. Need to improve the accuracy and code.
+Below is the prediction result for the images used for predicion
+![image](https://user-images.githubusercontent.com/46021672/160382681-f7732727-69f4-4dc2-acc0-363e5ee990b2.png)
+
+
+## Goals Accompolished
+
+Learning Phase:
+1. Conducted several experiments with two different datasets having image dimensions 100x100 and 64x64 for influencial learning.
+2. Experimented the spatial pooler parameters with different values of PotentialRadius, LocalAreaDensity, NumActiveColumnsPerInhArea and Global Inhibition and plotted graphs for the detailed understanding between them. 
+3. Generated the execution times graph for the different PotentialRadius and LocalAreaDensity values.
+4. Able to find the best fit matrix for both the datasets.
+
+Prediction Phase
+1. Implemented the prediction code and tested the accuracy with three different images
