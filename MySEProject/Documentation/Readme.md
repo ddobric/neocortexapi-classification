@@ -26,7 +26,7 @@ Further, The training data needs to be used for feature prediction of any given 
  !["PredictInputFolder/" with the images to be predicted](https://user-images.githubusercontent.com/46021672/160382423-71dd000e-1a1b-41e3-9475-27324acb0027.png)
 
 
-## Tasks and Results
+## Approach and Results
 
 ### Task 1: To change the various learning parameters and find the best fit that shows image classification. 
 
