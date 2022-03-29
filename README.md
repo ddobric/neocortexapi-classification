@@ -41,8 +41,11 @@ The prediction code added will help to find the precentage of similarity between
 3) The prediction code will calculate the Highest similarity between the testing images and the trainign images of the label(Dataset).
 4) The prediction code will give the name of the label which is being predicted with the highest similarity.
 
+**Below is the link of the prediction code implemented :** 
+https://github.com/Alam-Sher-Khan/neocortexapi-classification/blob/4faab23d94c1412130090b1a6281362441010a7a/MySEProject/ImageClassification/Experiment.cs#L97
+
 **Workflow of the learning and prediction of MNIST images**
-![image](https://user-images.githubusercontent.com/93146590/159539891-125feb98-f7c4-4bc1-8cff-73acc8f1f05c.png)
+![image](https://user-images.githubusercontent.com/93146590/160408643-862ebf41-e4ba-4fe8-b404-4841cb724d1d.png)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 3. How to use the classifier?
@@ -64,9 +67,6 @@ The prediction code added will help to find the precentage of similarity between
 Testing images must be copied in the following folder structure
 
 ![Test Folder Structure](https://user-images.githubusercontent.com/93139817/160196610-23590fc5-bfcb-490a-ab21-92079c307c8b.PNG)
-
-**Below is the link of the prediction code implemented :** 
-https://github.com/Alam-Sher-Khan/neocortexapi-classification/blob/4faab23d94c1412130090b1a6281362441010a7a/MySEProject/ImageClassification/Experiment.cs#L97
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
