@@ -1,72 +1,73 @@
-# NeocortexApi-Project **Image Classification**
+# Project:	Analyse Image Classification on Simple Shapes
 
-This project is the implementaiton of the command line interfaca for the image classification based on the Hierarchical Temporal Memory (HTM) implemented in the [necortexapi](https://github.com/ddobric/neocortexapi) repository.
+## Project Description
 
-This project is a collected work of thesis [**htm imgclassification**](https://github.com/UniversityOfAppliedSciencesFrankfurt/thesis-htm-imgclassification-dasu) by Dasu Sai Durga Sundari and SoftwareEngineering(SE) project of the same name by Long Nguyen at the Frankfurt University of Applied Sciences.  
+The Image classification project is previously implemented using HTM algorithm and using NeoCortex API, where our primary task to experiment with simple shapes(circle, rectangle, square, triangle and star) on the spatial pooler parameters: Global/Local Inhibition, Potential Radius, Local Area Density and NumofActiveColumnsPerInArea and demonstrate how these parameters influence learning and generate a Best fit correlation matrix.
 
-## How to use the classifier?
+Further, The training data needs to be used for feature prediction of any given input image For example, the user after learning enter the image “Circle”. The prediction code provide a set of predicting results like: “Circle – 73%, Rectangle 14%, Triangle - 11%”.
 
-### 1 Prepare the program's directory:
+ ## Setup for Learning and Prediction
  
- Before you start you need to prepare images that are required for the training. Images must be copied in the following folder structure along with the application and the config json:  
-
- ![](Images/WorkingDirectory.png)
+ ### Step-1: Prepare the program's directory for learning Shapes
  
-The imagesets are stored inside "InputFolder/".  
-
-![](Images/InputFolder.png)  
-
-Each Imageset is stored inside a folder whose name is the set's label.  
-
-![](Images/SampleData.png)  
-
- Sample input folder of the project can be found [here](ImageClassification/ImageClassification/InputFolder)  
- ### 2 Start the application by passing required command line arguments
- ~~~
- ImageClassification -if "InputFolder" -cf htmconfig.json
- ~~~
- -if   "Input Images folder path"  
- -cf   "json htm config file path"  
+ Create a new folder "InputFolder/" in the project directory and the imagesets which are used to train the model are stored in it.
  
- **HTM Configuration**  
- HTM setting of the project can be inputted to the program by means of a .json file [htmconfig.json](ImageClassification/ImageClassification/htmconfig.json).  
- Multiple experiments can therefore be conducted via changes of parameters in the json file. 
- For a reference on what each parameter does, please refer to []() on [neocortexapi](https://github.com/ddobric/neocortexapi) 
+![image](https://user-images.githubusercontent.com/46021672/160387127-ab67eac8-bd2c-4889-a211-febcc13d8418.png)
+
+ Each Imageset is stored inside a folder whose name is the set's label.
  
-### 3 How it works
-
-When started the application will load images and start the training process. The training process runs in following steps.
-
-#### (1) Convert The Images to binary array via binarization**  
-[The Binarization Library](https://github.com/daenetCorporation/imagebinarizer) was developed as an open source project at [Daenet](https://daenet.de/de/).  
-the current implementation uses a color threshold of 200 for every color in a 8bit-RGB scale.  
-The images with the same label must be stored in folder. The folder name is the images' label.   
-
-#### (2) Learn spatial patterns stored in images with the Spatial Pooler(SP)
-SP first iterates through all images until the stable state is entered.
-SP iterate through all the images as it learns.
-
-#### (3) Validation of SP Learning for different set of images
-The last set of Sparse Density Representations (SDRs), the output of Spatial Pooler(SP) for each binarized image were saved for correlation validation.  
-There are 2 types of correlation which are defined as follow:
-1. *Micro Correlation*: Maximum/Average/Minimum correlation in similar bit percent of all images' SDRs which respect to each another in the same label.  
-2. *Macro Correlation*: Maximum/Average/Minimum correlation in similar bit percent of all images' SDRs with images from 2 different labels.   
-The results of the two correlation are printed in the command prompt when executing the code  
-
-The algorithm for calculating correlation can be found [here](https://github.com/ddobric/neocortexapi/blob/7d05b61b919a82fd7f8028c63970dfbc7d78dd50/source/NeoCortexApi/Utility/MathHelpers.cs#L93)  
-Result example:
-
-![Sample output of the experiment after learning](Images/OutputExample.png)  
-The Images used was collected from [Fruit 360](https://github.com/Horea94/Fruit-Images-Dataset).  
-## How to run the application in Visual Studio
-Visual Studio can add arguments (args) parameter to run your code.  
-![](Images/LaunchProfile.png)
-This is done by changing the arguments command line arguments in Debug Properties Launch Profiles to 
-~~~
--cf htmconfig1.json -if "InputFolder"
-~~~
--cf add the option of the configuration file "htmconfig1.json"  
--if add the option of the training Input Folder "InputFolder/".  
-This folder contains folders of images, where the folder names also act as the label for the images inside it.  
+![image](https://user-images.githubusercontent.com/46021672/160381920-728ba2af-41d8-4802-8ab3-9c7d1c85ceeb.png)
 
 
+### Step-2: Prepare the program's directory for Prediction Images.
+ 
+ Create a new folder "PredictInputFolder/" in the project directory and the Prediction Images are stored in it, where the prediction extracts the images from this directory to perform the shape prediction with the help of trained dataset. The prediction code is able to get the multiple images for prediction and displays the similarity output respectivly
+
+ !["PredictInputFolder/" with the images to be predicted](https://user-images.githubusercontent.com/46021672/160382423-71dd000e-1a1b-41e3-9475-27324acb0027.png)
+
+
+## Approach and Results
+
+### Task 1: To change the various learning parameters and find the best fit that shows image classification. 
+
+The following parameters have been changed for the trained image dataset of simple shapes. 
+
+| Parameter       | Description         |
+| ------------- |:-------------:|
+| POTENTIAL_RADIUS      |Defines the radius in number of input cells visible to column cells. It is important to choose this value, so every input neuron is connected to at least a single column. |
+| GLOBAL_INHIBITION      |If TRUE global inhibition algorithm will be used. If FALSE local inhibition algorithm will be used. |
+| LOCAL_AREA_DENSITY      |Density of active columns inside of local inhibition radius. If set on value < 0, explicit number of active columns (NUM_ACTIVE_COLUMNS_PER_INH_AREA) will be used. |
+| NUM_ACTIVE_COLUMNS_PER_INH_AREA     |An alternate way to control the density of the active columns. If this value is specified then LOCAL_AREA_DENSITY must be less than 0, and vice versa. |
+
+After experimenting the learning dataset with the various parameters, we were able to find the best corelation matrix that shows image classification for simple shapes.
+
+![image](https://user-images.githubusercontent.com/46021672/160387229-38cc7670-2790-46ce-a5dd-4681c6cf7834.png)
+
+
+### Task 2: Code for Image Prediction. 
+
+1. After the learning process, The prediction images are extracted from the "PredictInputFolder/".(Multiple images can be provided as input for the prediction where the code is able to loop between them and display the similarity results respectively)
+2. The images are encoded and input pattern is learned.
+3. The Prediction method compares the predict image SDR with the trained image SDR's and caluclates the average percentage of similarity for a shape.
+4. The Prediction code will display the average percentage between the input predict image and trained shapes.
+
+The flowchart of the prediction phase is demonstrated in the below image
+
+![Prediction flow chart](https://user-images.githubusercontent.com/46021672/160383599-a8f1d0c7-a625-49c5-81eb-1ca9a9ecc5d6.png)
+
+The code for image prediction can be found [here](https://github.com/GurunagSai/neocortexapi-classification/blob/9db90e1416a400fa98dae8dc118edced62463ea0/MySEProject/ImageClassification/ImageClassification/Experiment.cs#L266)
+
+Below is the prediction result for the images used for predicion
+![image](https://user-images.githubusercontent.com/46021672/160382681-f7732727-69f4-4dc2-acc0-363e5ee990b2.png)
+
+
+## Goals Accompolished
+
+Learning Phase:
+1. Conducted several experiments with two different datasets having image dimensions 100x100 and 64x64 for influencial learning.
+2. Experimented the spatial pooler parameters with different values of PotentialRadius, LocalAreaDensity, NumActiveColumnsPerInhArea and Global Inhibition and plotted graphs for the detailed understanding between them. 
+3. Generated the execution times graph for the different PotentialRadius and LocalAreaDensity values.
+4. Able to find the best fit matrix for both the datasets.
+
+Prediction Phase
+1. Implemented the prediction code and tested the accuracy with three different images
