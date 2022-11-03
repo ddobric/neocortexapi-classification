@@ -1,0 +1,11 @@
+Update 1 :local repository has been created
+Update 2 : Researching and studying on MNIST dataset
+Update 3 : Going through already available codes
+Update 4 : Experimented with the MBIST datasets 0,1,2
+Update 5 : Experimented withe MBIST datasets 8,5,6
+Update 6 : Studying and understanding HTMconfig.json file to change the parameters to improve the result
+Update 7 : Experimenting by changing different parameters of the HTMconfig.json file 
+Update 8 : Added MNIST Image dataset as 5,4,3, done experiments by keeping potetial radius as 20 and varying the local area density with 0.05 difference 
+Update 9 : After many experiments found the best correlation matrix
+Update 10 : Plotted graphs with the output values of the micro and macro 
+Update 10 : Wrote prediction code and tested with various input images
